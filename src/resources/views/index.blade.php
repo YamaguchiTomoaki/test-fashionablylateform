@@ -10,7 +10,8 @@
         <h2>Contact</h2>
     </div>
 
-    <form class="contact-form">
+    <form class="contact-form" action="/confirm" method="post">
+        @csrf
         <div class="contact-form__group">
             <div class="contact-form__group-title">
                 <span class="contact-form__label--item">お名前</span>
@@ -18,8 +19,8 @@
             </div>
             <div class="contact-form__group-content">
                 <div class="contact-form__input-text--name">
-                    <input type="text" name="lastname" placeholder="例:山田" value="{{ old('lastname') }}" />
-                    <input type="text" name="firstname" placeholder="例:太郎" value="{{ old('firstname') }}" />
+                    <input type="text" name="last_name" placeholder="例:山田" value="{{ old('last_name') }}" />
+                    <input type="text" name="first_name" placeholder="例:太郎" value="{{ old('first_name') }}" />
                 </div>
             </div>
         </div>
@@ -30,7 +31,7 @@
             </div>
             <div class="contact-form__group-content">
                 <div class="contact-form__input-radio">
-                    <input type="radio" name="gender" id="male" value="男性{{ old('gender','男性') == '男性' ? 'cheked' : ''}}">
+                    <input type="radio" name="gender" id="male" value="男性" checked>
                     <label for="male" class="radio__label">男性</label>
                     <input type="radio" name="gender" id="woman" value="女性">
                     <label for="woman" class="radio__label">女性</label>
@@ -93,14 +94,16 @@
             </div>
             <div class="contact-form__group-content">
                 <div class="contact-form__input--select">
-                    <select name="category">
-                        <option selected>選択してください</option>
-                        <option value="商品のお届けについて">商品のお届けについて</option>
-                        <option value="商品の交換について">商品の交換について</option>
-                        <option value="商品トラブル">商品トラブル</option>
-                        <option value="ショップへの問い合わせ">ショップへの問い合わせ</option>
-                        <option value="その他">その他</option>
-                    </select>
+                    <div class="select__pointer">
+                        <select name="content">
+                            <option selected style="display: none;">選択してください</option>
+                            <option value="商品のお届けについて">商品のお届けについて</option>
+                            <option value="商品の交換について">商品の交換について</option>
+                            <option value="商品トラブル">商品トラブル</option>
+                            <option value="ショップへの問い合わせ">ショップへの問い合わせ</option>
+                            <option value="その他">その他</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
@@ -111,7 +114,7 @@
             </div>
             <div class="contact-form__group-content">
                 <div class="contact-form__input--textarea">
-                    <textarea name="content" placeholder="お問い合わせ内容をご記載ください"></textarea>
+                    <textarea name="detail" placeholder="お問い合わせ内容をご記載ください"></textarea>
                 </div>
             </div>
         </div>

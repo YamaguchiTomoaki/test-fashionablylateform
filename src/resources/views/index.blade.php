@@ -95,13 +95,11 @@
             <div class="contact-form__group-content">
                 <div class="contact-form__input--select">
                     <div class="select__pointer">
-                        <select name="content">
+                        <select name="category_id">
                             <option selected style="display: none;">選択してください</option>
-                            <option value="商品のお届けについて">商品のお届けについて</option>
-                            <option value="商品の交換について">商品の交換について</option>
-                            <option value="商品トラブル">商品トラブル</option>
-                            <option value="ショップへの問い合わせ">ショップへの問い合わせ</option>
-                            <option value="その他">その他</option>
+                            @foreach ($categories as $category)
+                            <option value="{{ $category['id'] }}">{{ $category['content'] }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>

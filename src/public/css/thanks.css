@@ -1,0 +1,35 @@
+.thanks__content {
+    max-width: 1230px;
+    position: relative;
+}
+
+.back__logo {
+    font-size: 300px;
+    position: relative;
+    top: 50px;
+    left: 10%;
+    color: #F9F8F7;
+    white-space: nowrap;
+}
+
+.front {
+    position: absolute;
+    top: 45%;
+    left: 750px;
+    text-align: center;
+}
+
+.front__str {
+    font-weight: bold;
+    font-size: 24px;
+    color: #8B7969;
+}
+
+.contact-form__return {
+    text-decoration: none;
+    padding: 10px 40px;
+    background-color: #82756A;
+    color: #fff;
+    margin-top: 80px;
+    display: inline-block;
+}

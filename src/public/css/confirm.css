@@ -59,6 +59,13 @@
     border-bottom-width: 0;
 }
 
+.confirm-table__text select {
+    border: none;
+    outline: none;
+    appearance: none;
+    color: #8B7969;
+}
+
 .confirm-table__text textarea {
     width: 100%;
     border: none;

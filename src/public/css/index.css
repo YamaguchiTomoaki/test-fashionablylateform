@@ -19,7 +19,7 @@
 .contact-form__group {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     width: 100%;
 }
 
@@ -99,12 +99,13 @@
 .contact-form__input-text--tel {
     display: flex;
     justify-content: space-between;
+    height: 40px;
 }
 
 .contact-form__input-text--tel input {
     padding: 20px;
     width: 150px;
-    height: 40px;
+    height: 100%;
     background: #F4F4F4;
     color: #8B7969;
     text-align: center;
@@ -169,4 +170,9 @@
     background: #82756A;
     color: #fff;
     cursor: pointer;
+}
+
+.contact-form__error {
+    text-align: left;
+    color: red;
 }

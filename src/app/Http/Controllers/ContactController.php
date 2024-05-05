@@ -15,7 +15,7 @@ class ContactController extends Controller
         return view('index', compact('categories'));
     }
 
-    public function confirm(Request $request)
+    public function confirm(ContactRequest $request)
     {
         $contact = $request->only([
             'last_name', 'first_name', 'gender', 'email',

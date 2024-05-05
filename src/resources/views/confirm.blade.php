@@ -56,7 +56,7 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">お問い合わせの種類</th>
                     <td class="confirm-table__text">
-                        <select name="category_id">
+                        <select name="category_id" readonly>
                             <option value="{{ $category['id'] }}">{{ $category['content'] }}</option>
                         </select>
                     </td>

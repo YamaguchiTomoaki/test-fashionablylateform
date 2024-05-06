@@ -18,4 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ContactController::class, 'index']);
 Route::post('/confirm', [ContactController::class, 'confirm']);
 Route::post('/thanks', [ContactController::class, 'store']);
-Route::get('/register', [AdminController::class, 'register']);
+//Route::get('/register', [AdminController::class, 'register']);
+//Route::get('/login', [AdminController::class, 'login']);
+Route::middleware('auth')->group(function () {
+    Route::get('/admin', [AdminController::class, 'admin']);
+});

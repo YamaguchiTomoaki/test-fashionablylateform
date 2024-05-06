@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // 初期のみコメント外す
         //$this->call(CategoriesTableSeeder::class);
         Contact::factory(7)->create();
     }

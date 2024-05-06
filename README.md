@@ -21,7 +21,8 @@ Laravel環境構築
 ・MySQL 8.0.26
 
 ## ER図
-< - - - 作成したER図の画像 - - - >
+![スクリーンショット 2024-05-06 175243](https://github.com/YamaguchiTomoaki/fashionablylate-form/assets/163442049/e59c8efe-331f-4c5d-a073-cb4e19aec09b)
+
 
 ## URL
 開発環境：http://localhost/

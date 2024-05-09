@@ -11,6 +11,7 @@
 
 .header__utilities {
     display: flex;
+    position: relative;
 }
 
 .header__logo {
@@ -19,4 +20,5 @@
     font-size: 30px;
     margin: 0 auto;
     position: relative;
+    display: flex;
 }

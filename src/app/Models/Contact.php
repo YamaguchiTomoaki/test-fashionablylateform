@@ -25,4 +25,13 @@ class Contact extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function scopeKeywordSearch($query, $keyword)
+    {
+        if (!empty($keyword)) {
+            $query->where('last_name', 'like', '%' . $keyword . '%')
+                ->orWhere('first_name', 'like', '%' . $keyword . '%')
+                ->orWhere('email', 'like', '%' . $keyword . '%');
+        }
+    }
 }

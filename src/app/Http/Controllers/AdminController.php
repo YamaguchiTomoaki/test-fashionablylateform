@@ -29,4 +29,13 @@ class AdminController extends Controller
 
         return view('admin', compact('categories'), ['contacts' => $contacts]);
     }
+
+    public function search(Request $request)
+    {
+        $contacts = Contact::KeywordSearch($request->keyword)->Paginate(7);
+        //dd($contacts);
+        $categories = Category::all();
+
+        return view('admin', compact('categories'), ['contacts' => $contacts]);
+    }
 }

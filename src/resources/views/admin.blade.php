@@ -17,13 +17,13 @@
         <h2>Admin</h2>
     </div>
 
-    <form class="search-form">
+    <form class="search-form" action="/admin/search" method="get">
         @csrf
         <div class="search-form__item">
             <div class="search-form__item-input">
                 <input type="text" name="keyword" placeholder="名前やメールアドレスを入力してください" value="{{ old('keyword') }}" />
             </div>
-            <div class="search-form__item-select">
+            <div class="search-form__item-gender">
                 <div class="select__pointer">
                     <select name="gender">
                         <option value="null" hidden>性別</option>
@@ -33,22 +33,32 @@
                     </select>
                 </div>
             </div>
-            <select class="search-form__item-select" name="category_id">
-                <option value="null" hidden>お問い合わせの種類</option>
-                @foreach ($categories as $category)
-                <option value="{{ $category['id'] }}" @if(old('category_id')==$category['id']) selected @endif>{{ $category['content'] }}</option>
-                @endforeach
-            </select>
-            <input class="search-form__item-date" type="date" name="date" value="{{ old('date') }}">
-            <button class="search-form__button" type="submit">検索</button>
-            <button class="search-form__button-reset" type="submit">リセット</button>
+            <div class="search-form__item-category">
+                <div class="select__pointer">
+                    <select name="category_id">
+                        <option value="null" hidden>お問い合わせの種類</option>
+                        @foreach ($categories as $category)
+                        <option value="{{ $category['id'] }}" @if(old('category_id')==$category['id']) selected @endif>{{ $category['content'] }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            <div class="search-form__item-date">
+                <input type="date" name="date" value="{{ old('date') }}">
+            </div>
+            <div class="search-form__button">
+                <button class="search-form__button-submit" type="submit">検索</button>
+            </div>
+            <div class="search-form__button">
+                <button class="search-form__button-reset" type="submit">リセット</button>
+            </div>
         </div>
 
         <div class="admin__content">
             <div class="content__header">
                 <button class="export__button" type="submit">エクスポート</button>
-                <!--ページネーション書く-->
-                {{ $contacts->links() }}
+                <!--ページ切り替え時にクエリ文字列を維持-->
+                {{ $contacts->withQueryString()->links() }}
             </div>
             <div class="content-table">
                 <table class="content-table__inner">
@@ -100,6 +110,11 @@
                             @case(5)
                             {{ $categories[4]->content }}
                             @endswitch
+                        </td>
+                        <td class="content-table__item">
+                            <div class="detail__button">
+                                <button class="content-table__button-detail" type="submit">詳細</button>
+                            </div>
                         </td>
                     </tr>
                     @endforeach

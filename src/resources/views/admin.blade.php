@@ -21,15 +21,16 @@
         @csrf
         <div class="search-form__item">
             <div class="search-form__item-input">
-                <input type="text" name="keyword" placeholder="名前やメールアドレスを入力してください" value="{{ old('keyword') }}" />
+                <input type="text" name="keyword" placeholder="名前やメールアドレスを入力してください" />
             </div>
             <div class="search-form__item-gender">
                 <div class="select__pointer">
                     <select name="gender">
                         <option value="null" hidden>性別</option>
-                        <option value="1" @if(old('gender')==1) selected @endif>男性</option>
-                        <option value="2" @if(old('gender')==2) selected @endif>女性</option>
-                        <option value="3" @if(old('gender')==3) selected @endif>その他</option>
+                        <option value="1">男性</option>
+                        <option value="2">女性</option>
+                        <option value="3">その他</option>
+                        <option value="4">全て</option>
                     </select>
                 </div>
             </div>
@@ -38,19 +39,19 @@
                     <select name="category_id">
                         <option value="null" hidden>お問い合わせの種類</option>
                         @foreach ($categories as $category)
-                        <option value="{{ $category['id'] }}" @if(old('category_id')==$category['id']) selected @endif>{{ $category['content'] }}</option>
+                        <option value="{{ $category['id'] }}">{{ $category['content'] }}</option>
                         @endforeach
                     </select>
                 </div>
             </div>
             <div class="search-form__item-date">
-                <input type="date" name="date" value="{{ old('date') }}">
+                <input type="date" name="date">
             </div>
             <div class="search-form__button">
                 <button class="search-form__button-submit" type="submit">検索</button>
             </div>
-            <div class="search-form__button">
-                <button class="search-form__button-reset" type="submit">リセット</button>
+            <div class="search-form__button-reset">
+                <input type="reset" value="リセット">
             </div>
         </div>
 
@@ -75,11 +76,12 @@
                         <th class="content-table__header">
                             お問い合わせの種類
                         </th>
+                        <th class="content-table__header"></th>
                     </tr>
                     @foreach ($contacts as $contact)
                     <tr class="content-table__row">
                         <td class="content-table__item">
-                            {{ $contact['last_name'] . $contact['first_name']}}
+                            {{ $contact['last_name'] . "　" . $contact['first_name']}}
                         </td>
                         <td class="content-table__item">
                             @if ($contact['gender'] == 1)

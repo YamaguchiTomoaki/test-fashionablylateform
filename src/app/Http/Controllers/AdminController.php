@@ -32,7 +32,7 @@ class AdminController extends Controller
 
     public function search(Request $request)
     {
-        $contacts = Contact::KeywordSearch($request->keyword)->Paginate(7);
+        $contacts = Contact::KeywordSearch($request->keyword)->GenderSearch($request->gender)->CategotySearch($request->category_id)->DateSearch($request->date)->Paginate(7);
         //dd($contacts);
         $categories = Category::all();
 

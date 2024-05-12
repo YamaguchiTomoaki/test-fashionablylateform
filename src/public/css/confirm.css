@@ -92,7 +92,12 @@
     cursor: pointer;
 }
 
-.correction {
+.correction__button {
     margin-left: 50px;
     color: #8B7969;
+    border: none;
+    outline: none;
+    background: transparent;
+    border-bottom: 1px solid #8B7969;
+    cursor: pointer;
 }

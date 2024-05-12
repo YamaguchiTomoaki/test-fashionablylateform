@@ -17,7 +17,7 @@
         <h2>Admin</h2>
     </div>
 
-    <form class="search-form" action="/admin/search" method="get">
+    <form class="search-form" action="/search" method="get">
         @csrf
         <div class="search-form__item">
             <div class="search-form__item-input">
@@ -114,9 +114,7 @@
                             @endswitch
                         </td>
                         <td class="content-table__item">
-                            <div class="detail__button">
-                                <button class="content-table__button-detail" type="submit">詳細</button>
-                            </div>
+                            <a class="modal__detail-button" href="#{{$contact->id}}">詳細</a>
                         </td>
                     </tr>
                     @endforeach

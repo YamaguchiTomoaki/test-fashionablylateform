@@ -28,7 +28,8 @@ class ContactController extends Controller
 
     public function store(Request $request)
     {
-        $contact = $request->only(['first_name', 'last_name',  'gender', 'email', 'tell', 'address', 'building', 'category_id', 'detail']);
+        // 修正ボタン処理の為、toptel,middletel,bottomtelも取得
+        $contact = $request->only(['first_name', 'last_name',  'gender', 'email', 'tell', 'address', 'building', 'category_id', 'detail', 'toptel', 'middletel', 'bottomtel']);
         // ラジオボタンの内容をDB登録時はtinyintの為、数値に変更
         switch ($contact['gender']) {
             case "男性":
@@ -41,6 +42,11 @@ class ContactController extends Controller
                 $contact['gender'] = 3;
                 break;
         }
+        // 修正ボタン処理
+        if ($request->input('correction') == 'back') {
+            return redirect('/')->withInput();
+        }
+
         Contact::create($contact);
         return view('thanks');
     }

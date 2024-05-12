@@ -39,6 +39,10 @@
                     <th class="confirm-table__header">電話番号</th>
                     <td class="confirm-table__text">
                         <input type="tel" name="tell" value="{{ $contact['toptel'] . $contact['middletel'] . $contact['bottomtel'] }}" readonly />
+                        <!--修正ボタンリダイレクト処理で必要の為、hiddenで送信-->
+                        <input type="hidden" name="toptel" value="{{ $contact['toptel'] }}" />
+                        <input type="hidden" name="middletel" value="{{ $contact['middletel'] }}" />
+                        <input type="hidden" name="bottomtel" value="{{ $contact['bottomtel'] }}" />
                     </td>
                 </tr>
                 <tr class="confirm-table__row">
@@ -71,7 +75,8 @@
         </div>
         <div class="confirm-form__button">
             <button class="confirm-form__button-submit" type="submit">送信</button>
-            <a class="correction" href="/">修正</a>
+            <button class="correction__button" type="submit" name="correction" value="back">修正</button>
+            <!--<a class="correction" href="/">修正</a>-->
         </div>
 
 </div>

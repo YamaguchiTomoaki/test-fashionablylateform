@@ -10,16 +10,6 @@ use Illuminate\Pagination\Paginator;
 
 class AdminController extends Controller
 {
-    public function register()
-    {
-        return view('register');
-    }
-
-    public function login()
-    {
-        return view('login');
-    }
-
     public function admin()
     {
         $categories = Category::all();

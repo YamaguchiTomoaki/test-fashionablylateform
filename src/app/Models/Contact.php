@@ -9,6 +9,10 @@ class Contact extends Model
 {
     use HasFactory;
 
+    protected $guarded = [
+        'id'
+    ];
+
     protected $fillable = [
         'category_id',
         'first_name',

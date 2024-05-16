@@ -168,7 +168,6 @@
                                     </div>
                                     <input type="hidden" name="id" value="{{ $contact->id }}">
                                     <input class="modal-form__delete-btn btn" type="submit" value="削除">
-
                                 </form>
                             </div>
 

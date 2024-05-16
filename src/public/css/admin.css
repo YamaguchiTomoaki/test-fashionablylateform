@@ -259,11 +259,13 @@ span.page-link {
 }
 
 .modal__detail-button {
-    padding: 8px 12px;
+    padding: 5px 20px;
     border: 1px solid #D9C6B5;
     background-color: #F0F0F0;
     color: #D9C6B5;
     text-decoration: none;
+    margin-right: 50px;
+
 }
 
 /* モーダル */
@@ -308,21 +310,32 @@ span.page-link {
 }
 
 .modal-form__group {
+    /*CSSグリッドレイアウト*/
     display: grid;
     margin-top: 32px;
-
     grid-template-columns: 1fr 2fr;
     gap: 20px;
 }
 
 .modal-form__label {
     font-weight: bold;
+    color: #8B7969;
+
+}
+
+.modal-form__group p {
+    color: #8B7969;
 }
 
 .modal-form__delete-btn {
+    display: flex;
     margin: 64px auto 0;
     background-color: #BA370D;
+    padding: 6px 15px;
     color: #FFF;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 
 .modal__close-btn {
@@ -336,4 +349,6 @@ span.page-link {
     color: #8B7969;
     text-align: center;
     text-decoration: none;
+    line-height: 1.8;
+    cursor: pointer;
 }

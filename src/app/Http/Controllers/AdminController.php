@@ -28,4 +28,11 @@ class AdminController extends Controller
 
         return view('admin', compact('categories'), ['contacts' => $contacts]);
     }
+
+    public function destroy(Request $request)
+    {
+        dd($request);
+        Contact::find($request->id)->delete();
+        return redirect('/admin');
+    }
 }

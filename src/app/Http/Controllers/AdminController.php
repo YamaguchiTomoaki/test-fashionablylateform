@@ -31,7 +31,6 @@ class AdminController extends Controller
 
     public function destroy(Request $request)
     {
-        dd($request);
         Contact::find($request->id)->delete();
         return redirect('/admin');
     }
